@@ -15,6 +15,13 @@ export const userStore = create<UserStore>()((set) => ({
     phone: '',
     username: '',
     avatar: '',
+    role: '',
+    address: '',
+    address_line: '',
+    city: '',
+    municipality: '',
+    province: '',
+    numberHome: '',
   },
   setUser: (value: UserInterface) => set(() => ({
     user: value
@@ -26,6 +33,12 @@ export const userStore = create<UserStore>()((set) => ({
       phone: '',
       username: '',
       avatar: '',
+      address: '',
+      address_line: '',
+      city: '',
+      municipality: '',
+      province: '',
+      numberHome: '',
     }
   }))
 }))

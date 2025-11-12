@@ -31,9 +31,9 @@ export function FormLogin() {
       <h5 className="text-xl font-medium text-gray-900 dark:text-white">Sign in to our platform</h5>
       <div>
         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-          Your Email
+          Your Email or Phone
         </label>
-        <input type="email" autoComplete="email" {...register("email")} required
+        <input type="text" autoComplete="" {...register("identifier")} required
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" />
       </div>
       <div>
