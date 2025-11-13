@@ -1,31 +1,21 @@
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || '';
+import { api } from "./api";
 
 export async function loginUser(data: any) {
   try {
-    const result = await fetch(`${BACKEND_URL}/api/auth/login`, {
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: 'include',
-      body: JSON.stringify(data),
-    })
-    return result;
-  } catch (error) {
-    throw new Error();
+    const res = await api.post("/auth/login", data);
+    return res.data;
+  } catch (error: any) {
+    console.error(error);
+    throw new Error(error.response?.data?.message || "Error logging in");
   }
 }
 
 export async function logoutUser() {
   try {
-    await fetch(`${BACKEND_URL}/api/auth/logout`, {
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: 'include',
-    })
-  } catch (error) {
-    throw new Error()
+    const res = await api.post("/auth/logout");
+    return res.data;
+  } catch (error: any) {
+    console.error(error);
+    throw new Error(error.response?.data?.message || "Error logging out");
   }
 }

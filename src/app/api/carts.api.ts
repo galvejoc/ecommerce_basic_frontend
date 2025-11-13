@@ -1,58 +1,42 @@
 import { AddCartItemInterface, UpdateCartItemInterface } from "@/interface";
-
-
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || '';
+import { api } from "./api";
 
 export async function getCartMe() {
   try {
-    const result = await fetch(`${BACKEND_URL}/api/carts`, {
-      method: 'GET',
-      credentials: 'include',
-    })
-    const data = await result.json();
-    return data;
-  } catch (error) {
-    throw new Error();
+    const res = await api.get("/carts");
+    return res.data;
+  } catch (error: any) {
+    console.error(error);
+    throw new Error(error.response?.data?.message || "Error getting cart");
   }
 }
 
 export async function addCartItem(data: AddCartItemInterface) {
   try {
-    const result = await fetch(`${BACKEND_URL}/api/carts`, {
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-    return result;
-  } catch (error) {
-    throw new Error();
+    const res = await api.post("/carts", data);
+    return res.data;
+  } catch (error: any) {
+    console.error(error);
+    throw new Error(error.response?.data?.message || "Error adding item to cart");
   }
 }
 
 export async function clearCart() {
-  const res = await fetch(`${BACKEND_URL}/api/carts`, {
-    method: "DELETE",
-    credentials: 'include',
-  })
-  return await res.json();
+  try {
+    const res = await api.delete("/carts");
+    return res.data;
+  } catch (error: any) {
+    console.error(error);
+    throw new Error(error.response?.data?.message || "Error clearing cart");
+  }
 }
 
 export async function updateCartItem(uuid: string, data: UpdateCartItemInterface) {
   try {
-    const res = await fetch(`${BACKEND_URL}/api/carts/${uuid}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: 'include',
-      body: JSON.stringify(data),
-    })
-    if (!res.ok) {
-      throw new Error(`HTTP error! status: ${res.status}`);
-    }
-  } catch (error) {
-    throw new Error();
+    const res = await api.patch(`/carts/${uuid}`, data);
+    return res.data;
+  } catch (error: any) {
+    console.error(error);
+    throw new Error(error.response?.data?.message || "Error updating cart item");
   }
 }
