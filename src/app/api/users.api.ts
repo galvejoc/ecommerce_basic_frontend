@@ -15,7 +15,7 @@ export async function registerUser(data: any) {
   }
 }
 
-export async function getUser() {
+export async function getUserMe() {
   try {
     const result = await fetch(`${BACKEND_URL}/api/users/me`, {
       method: 'GET',

@@ -1,5 +1,5 @@
 'use client'
-import { getUser } from "@/app/api/users.api";
+import { getUserMe } from "@/app/api/users.api";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { userStore } from "@/store";
@@ -17,7 +17,7 @@ export function FormLogin() {
       if (response && !response.ok) {
         throw new Error();
       }
-      const user = await getUser();
+      const user = await getUserMe();
       setUser(user);
       router.push('/');
     } catch (error) {
@@ -27,28 +27,28 @@ export function FormLogin() {
   });
 
   return (
-    <form onSubmit={onSubmit} className="space-y-6">
-      <h5 className="text-xl font-medium text-gray-900 dark:text-white">Sign in to our platform</h5>
+    <form onSubmit={onSubmit} className="space-y-6 bg-color-background">
+      <h5 className="text-xl font-medium text-secondary">Sign in to our platform</h5>
       <div>
-        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+        <label className="block mb-2 text-sm font-medium ">
           Your Email or Phone
         </label>
         <input type="text" autoComplete="" {...register("identifier")} required
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" />
+          className="bg-background border-2 border-gray-300 focus:border-accent focus:outline-none text-sm rounded-lg block w-full p-2.5 " />
       </div>
       <div>
-        <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+        <label className="block mb-2 text-sm font-medium ">
           Your Password
         </label>
         <input autoComplete="current-password" type="password" {...register("password")} required
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" />
+          className="bg-background border-2 border-gray-300 focus:border-accent focus:outline-none text-sm rounded-lg block w-full p-2.5" />
       </div>
-      <button type="submit" className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+      <button type="submit" className="w-full text-white bg-primary hover:bg-secondary focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center">
         Login to your account
       </button>
-      <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
+      <div className="text-sm font-medium">
         Not registered?
-        <Link href={'/register'} className="text-blue-700 hover:underline dark:text-blue-500 ml-1">
+        <Link href={'/register'} className="text-secondary hover:underline ml-1">
           Create account
         </Link>
       </div>

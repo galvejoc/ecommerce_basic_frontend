@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import { AvatarUser } from "./avatar-user";
-import { getUser } from "@/app/api/users.api";
+import { getUserMe } from "@/app/api/users.api";
 
 export function TopMenu() {
   const pathName = usePathname();
@@ -14,7 +14,7 @@ export function TopMenu() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getUser();
+        const data = await getUserMe();
         setUser(data);
       } catch (error) {
       }
