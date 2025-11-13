@@ -22,6 +22,7 @@ export const userStore = create<UserStore>()((set) => ({
     municipality: '',
     province: '',
     numberHome: '',
+    note: '',
   },
   setUser: (value: UserInterface) => set(() => ({
     user: value
@@ -39,6 +40,7 @@ export const userStore = create<UserStore>()((set) => ({
       municipality: '',
       province: '',
       numberHome: '',
+      note: '',
     }
   }))
 }))

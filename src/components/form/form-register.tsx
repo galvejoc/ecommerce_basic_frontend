@@ -1,13 +1,13 @@
 'use client'
 import { registerUser } from "@/app/api/users.api";
-import { RegisterFormData } from "@/interface";
+import { RegisterFormDataInterface } from "@/interface";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form"
 import { toast } from "sonner";
 
 export function FormRegister() {
   const router = useRouter();
-  const { register, handleSubmit, formState: { errors } } = useForm<RegisterFormData>();
+  const { register, handleSubmit, formState: { errors } } = useForm<RegisterFormDataInterface>();
   const onSubmit = handleSubmit(async data => {
     try {
       if (data.password !== data.passwordConfirm) {
