@@ -27,6 +27,7 @@ export interface ProductSingleInterface {
   status: string,
   price: string,
   discount_price: string,
+  discount_percentage: string,
   imagen: string,
 }
 

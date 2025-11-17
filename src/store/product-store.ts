@@ -2,8 +2,9 @@ import { ProductSingleFiltersInterface, ProductSingleInterface } from "@/interfa
 import { create } from "zustand";
 
 interface ProductSingleStore {
-  product: ProductSingleInterface
-  setProduct: (value: ProductSingleInterface) => void,
+  product: ProductSingleInterface[]
+  setProduct: (value: ProductSingleInterface[]) => void,
+  addProduct: (value: ProductSingleInterface | ProductSingleInterface[]) => void;
   cleanProduct: () => void;
 
   productSingleFilters: ProductSingleFiltersInterface,
@@ -12,30 +13,22 @@ interface ProductSingleStore {
 }
 
 export const productsStore = create<ProductSingleStore>()((set) => ({
-  product: {
-    uuid: '',
-    name: '',
-    descriptionShort: '',
-    status: '',
-    price: '',
-    discount_price: '',
-    imagen: '',
-  },
-  setProduct: (value: ProductSingleInterface) => set(() => ({
+  product: [],
+  setProduct: (value) => set(() => ({
     product: value
   })),
+  addProduct: (value) =>
+    set((state) => ({
+      product: [
+        ...state.product,
+        ...(Array.isArray(value) ? value : [value])
+      ]
+    })),
   cleanProduct: () => set(() => ({
-    product: {
-      uuid: '',
-      name: '',
-      descriptionShort: '',
-      status: '',
-      price: '',
-      discount_price: '',
-      imagen: '',
-    }
+    product: []
   })),
-  
+
+  // Filtros
   productSingleFilters: {
     name: undefined,
     categoryUuid: undefined,
@@ -47,7 +40,7 @@ export const productsStore = create<ProductSingleStore>()((set) => ({
     page: 1,
     limit: 10,
   },
-  setProductSingleFilters: (value: ProductSingleFiltersInterface) => set(() => ({
+  setProductSingleFilters: (value) => set(() => ({
     productSingleFilters: value
   })),
   cleanProductSingleFilters: () => set(() => ({
@@ -63,4 +56,4 @@ export const productsStore = create<ProductSingleStore>()((set) => ({
       limit: 10,
     }
   }))
-}))
+}));

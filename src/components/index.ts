@@ -10,4 +10,6 @@ export * from './form/form-register';
 export * from './card/product-card';
 export * from './card/product-card-list';
 export * from './card/product-card-skeleton';
-export * from './card/product-card-filters';
+export * from './card/product-card-empty';
+
+export * from './filters/filters-products';
