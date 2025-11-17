@@ -74,14 +74,14 @@ export function FiltersProducts() {
 
         </button>
       </div>
-      <span className="flex mt-4 text-xl">Categorias</span>
+      <span className="flex mt-4 text-lg">Categorias</span>
       <hr className="border-t my-1 border-gray-300" />
       <div className="flex overflow-x-auto space-x-2 py-1">
         {categories.map((cat) => (
           <button
             key={cat.uuid}
             onClick={() => handleSelectCategory(cat.uuid)}
-            className={`px-3 uppercase py-1 rounded-xl border text-sm border-primary transition ${productSingleFilters.categoryUuid === cat.uuid
+            className={`px-3 uppercase py-1 rounded-xl border text-xs border-primary transition ${productSingleFilters.categoryUuid === cat.uuid
               ? 'bg-primary text-white'
               : 'bg-background hover:bg-gray-200 text-secondary'
               }`}
@@ -90,14 +90,14 @@ export function FiltersProducts() {
           </button>
         ))}
       </div>
-      <span className="flex mt-4 text-xl">Etiquetas</span>
+      <span className="flex mt-4 text-lg">Etiquetas</span>
       <hr className="border-t my-1 border-gray-300" />
       <div className="flex overflow-x-auto space-x-2 py-1">
         {tags.map((e) => (
           <button
             key={e.uuid}
             onClick={() => handleSelectTags(e.uuid)}
-            className={`px-3 uppercase py-1 rounded-xl border border-primary text-sm transition ${productSingleFilters.tagUuid === e.uuid
+            className={`px-3 uppercase py-1 rounded-xl border border-primary text-xs transition ${productSingleFilters.tagUuid === e.uuid
               ? 'bg-primary text-white'
               : 'bg-background hover:bg-gray-200 text-secondary'
               }`}
@@ -106,7 +106,7 @@ export function FiltersProducts() {
           </button>
         ))}
       </div>
-      <span className="flex mt-4 text-xl">Rango de Precio</span>
+      <span className="flex mt-4 text-lg">Rango de Precio</span>
       <hr className="my-1 border-t border-gray-300" />
       <div className="flex space-x-2 justify-center items-center gap-2">
         <Range
@@ -160,7 +160,7 @@ export function FiltersProducts() {
       <div className="flex mt-3 gap-4 ">
         <input
           type="number"
-          placeholder="Precio mínimo"
+          placeholder="Mínimo"
           className="w-1/2 p-2 border border-accent rounded focus:outline-none"
           value={productSingleFilters.minPrice ?? ''}
           onChange={(e) => setProductSingleFilters({
@@ -171,7 +171,7 @@ export function FiltersProducts() {
         />
         <input
           type="number"
-          placeholder="Precio máximo"
+          placeholder="Máximo"
           className="w-1/2 p-2 border border-accent rounded focus:outline-none"
           value={productSingleFilters.maxPrice ?? ''}
           onChange={(e) => setProductSingleFilters({
