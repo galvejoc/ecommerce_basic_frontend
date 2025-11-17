@@ -38,7 +38,7 @@ export const productsStore = create<ProductSingleStore>()((set) => ({
     maxPrice: undefined,
     search: undefined,
     page: 1,
-    limit: 10,
+    limit: 12,
   },
   setProductSingleFilters: (value) => set(() => ({
     productSingleFilters: value
@@ -53,7 +53,7 @@ export const productsStore = create<ProductSingleStore>()((set) => ({
       maxPrice: undefined,
       search: undefined,
       page: 1,
-      limit: 10,
+      limit: 12,
     }
   }))
 }));

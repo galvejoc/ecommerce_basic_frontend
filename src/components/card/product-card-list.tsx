@@ -37,7 +37,7 @@ export function ProductCardList({ openFilters }: { openFilters?: boolean }) {
         )}
       >
         {loader &&
-          Array.from({ length: 3 }).map((_, i) => <ProductCardSkeleton key={i} />)}
+          Array.from({ length: 4 }).map((_, i) => <ProductCardSkeleton key={i} />)}
 
         {!loader && product?.length > 0 &&
           product.map((item) => <ProductCard key={item.uuid} data={item} />)}
