@@ -11,3 +11,8 @@ export enum CategoriesStatus {
   INACTIVE = "INACTIVE",
   ALL = "ALL",
 }
+
+export interface CategoriesInterface {
+  uuid: string;
+  name: string;
+}

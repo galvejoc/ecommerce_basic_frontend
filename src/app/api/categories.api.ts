@@ -15,9 +15,18 @@ export async function createCategories(data: CreateCategoriesInterface) {
   }
 }
 
-export async function getCategories(status: CategoriesStatus) {
+export async function getCategories() {
   try {
-    const res = await api.get("/categories", {
+    const res = await api.get("/categories");
+    return res.data;
+  } catch (error: any) {
+    throw new Error(error.response?.data?.message || "Error getting categories");
+  }
+}
+
+export async function getCategoriesAdmin(status: CategoriesStatus) {
+  try {
+    const res = await api.get("/categories/admin", {
       params: { status },
     });
     return res.data;

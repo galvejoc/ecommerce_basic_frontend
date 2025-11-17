@@ -23,26 +23,74 @@ export function TopMenu() {
   }, [setUser]);
 
   return (
-    <nav className="flex px-5 justify-between items-center w-full h-16 bg-gray-400 shadow-lg">
+    <nav className="flex px-5 justify-between items-center w-full h-16 bg-accent shadow-lg">
       <div className="flex justify-between">
         <div className="flex">
-          <Link href={'/'}>
-            <div className={clsx("py-2 px-3 ml-6 rounded-xl hover:bg-slate-500 hover:text-white", { "bg-slate-500 text-white shadow-md": pathName === '/' })} >Home</div>
+
+          <Link href="/">
+            <div className="py-2 px-3 ml-6 font-bold rounded-xl text-secondary flex flex-col items-center hover:scale-110">
+              Home
+              <div
+                className={clsx(
+                  "w-4 h-1 bg-secondary rounded-2xl transition-transform origin-center",
+                  { "scale-100": pathName === "/", "scale-0": pathName !== "/" }
+                )}
+              />
+            </div>
           </Link>
-          <Link href={'/tasks'}>
-            <div className={clsx("py-2 px-3 ml-3 rounded-xl hover:bg-slate-500 hover:text-white", { "bg-slate-500 text-white shadow-md": pathName === '/tasks', "hidden": !user.username })}>Tasks</div>
+
+          <Link href="/products">
+            <div className="py-2 px-3 ml-3 font-bold rounded-xl text-secondary flex flex-col items-center hover:scale-110">
+              Products
+              <div
+                className={clsx(
+                  "w-4 h-1 bg-secondary rounded-2xl transition-transform origin-center",
+                  { "scale-100": pathName === "/products", "scale-0": pathName !== "/products" }
+                )}
+              />
+            </div>
           </Link>
+
+          <Link href="/info">
+            <div className="py-2 px-3 ml-3 font-bold rounded-xl text-secondary flex flex-col items-center hover:scale-110">
+              Info
+              <div
+                className={clsx(
+                  "w-4 h-1 bg-secondary rounded-2xl transition-transform origin-center",
+                  { "scale-100": pathName === "/info", "scale-0": pathName !== "/info" }
+                )}
+              />
+            </div>
+          </Link>
+
         </div>
       </div>
-      <div className="flex items-center">
-        <Link href={'/login'}>
-          <div className={clsx("py-2 px-3 ml-3 rounded-xl hover:bg-slate-500 hover:text-white", { "hidden": user.username })}>Login</div>
+
+      <div className="flex items-center text-secondary font-bold ">
+        <Link href="/login">
+          <div
+            className={clsx(
+              "py-2 px-3 ml-3 rounded-xl hover:scale-110",
+              { hidden: user.username }
+            )}
+          >
+            Login
+          </div>
         </Link>
-        <Link href={'/register'}>
-          <div className={clsx("py-2 px-3 ml-3 rounded-xl hover:bg-slate-500 hover:text-white", { "hidden": user.username })}>Register</div>
+
+        <Link href="/register">
+          <div
+            className={clsx(
+              "py-2 px-3 ml-3 rounded-xl hover:scale-110",
+              { hidden: user.username }
+            )}
+          >
+            Register
+          </div>
         </Link>
+
         <AvatarUser user={user} />
       </div>
     </nav>
-  )
+  );
 }

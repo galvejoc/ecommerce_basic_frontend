@@ -11,14 +11,14 @@ export function AvatarUser({ user }: { user: UserInterface }) {
     <>
       {user.username ?
         <div className="flex items-center gap-4">
-          <div className="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600 shadow-lg">
-            <span className="font-medium text-gray-900 dark:text-gray-300 ">
+          <div className="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-100 rounded-full shadow-lg">
+            <span className="font-medium text-gray-90 ">
               {user.username.toUpperCase().charAt(0)}
             </span>
           </div>
-          <div className="font-medium dark:text-white">
+          <div className="font-medium">
             <div>{user.username}</div>
-            <button className="py-1 px-2 rounded-xl hover:bg-slate-500 font-normal hover:text-white" onClick={() => {
+            <button className="py-1 rounded-xl font-medium hover:scale-110 cursor-pointer"  onClick={() => {
               cleanUser();
               logoutUser();
               router.push('/');

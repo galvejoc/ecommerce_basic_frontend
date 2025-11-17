@@ -15,7 +15,17 @@ export async function createTags(data: CreateTagsInterface) {
   }
 }
 
-export async function getTags(status: TagsStatus) {
+export async function getTags() {
+  try {
+    const res = await api.get("/tags");
+    return res.data;
+  } catch (error: any) {
+    console.error(error);
+    throw new Error(error.response?.data?.message || "Error getting tags");
+  }
+}
+
+export async function getTagsAdmin(status: TagsStatus) {
   try {
     const res = await api.get("/tags", {
       params: { status },

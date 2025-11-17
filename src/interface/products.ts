@@ -20,4 +20,24 @@ export interface CreateProductsInterface {
   ]
 }
 
+export interface ProductSingleInterface {
+  uuid: string,
+  name: string,
+  descriptionShort: string,
+  status: string,
+  price: string,
+  discount_price: string,
+  imagen: string,
+}
 
+export interface ProductSingleFiltersInterface {
+  name?: string,
+  categoryUuid?: string,
+  tagUuid?: string,
+  brand?: string,
+  minPrice?: number,
+  maxPrice?: number,
+  search?: string,
+  page: number,
+  limit: number,
+}

@@ -6,3 +6,8 @@ export * from './ui/main-home';
 
 export * from './form/form-login';
 export * from './form/form-register';
+
+export * from './card/product-card';
+export * from './card/product-card-list';
+export * from './card/product-card-skeleton';
+export * from './card/product-card-filters';
