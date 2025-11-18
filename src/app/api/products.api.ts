@@ -19,6 +19,6 @@ export async function getProductsSingle(filters: ProductSingleFiltersInterface) 
     return res.data;
   } catch (error: any) {
     console.error(error);
-    throw new Error(error.response?.data?.message || "Error creating product");
+    throw new Error(error.response?.data?.message || "Error get product");
   }
 }

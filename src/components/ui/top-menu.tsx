@@ -51,6 +51,18 @@ export function TopMenu() {
             </div>
           </Link>
 
+          <Link href="/combo">
+            <div className="py-2 px-3 ml-3 font-bold rounded-xl text-secondary flex flex-col items-center hover:scale-110">
+              Combo
+              <div
+                className={clsx(
+                  "w-4 h-1 bg-secondary rounded-2xl transition-transform origin-center",
+                  { "scale-100": pathName === "/combo", "scale-0": pathName !== "/combo" }
+                )}
+              />
+            </div>
+          </Link>
+
           <Link href="/info">
             <div className="py-2 px-3 ml-3 font-bold rounded-xl text-secondary flex flex-col items-center hover:scale-110">
               Info
