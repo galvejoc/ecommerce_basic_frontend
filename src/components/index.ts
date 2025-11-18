@@ -22,3 +22,4 @@ export * from './information/info-combo';
 export * from './information/info-product-details';
 export * from './information/info-imagen';
 export * from './information/info-combo-details';
+export * from './information/info-imagen-skeleton';

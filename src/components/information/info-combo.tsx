@@ -23,7 +23,7 @@ export function InfoCombo() {
   }, [uuid]);
   return (
     <div>
-      {/* <InfoImagen data={data?.images}/> */}
+      <InfoImagen data={data?.images}/>
     </div>
   )
 }

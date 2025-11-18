@@ -23,7 +23,7 @@ export function InfoProduct() {
     fetchTask();
   }, [uuid]);
   return (
-    <div className="flex w-full p-4 gap-4 justify-between">
+    <div className="grid grid-cols-1 md:grid-cols-2 w-full p-4 gap-4">
       <InfoImagen data={data?.images}/>
       <InfoProductDetails data ={data}/>
     </div>
