@@ -5,9 +5,10 @@ import { useEffect, useState } from "react";
 import { InfoImagen } from "./info-imagen";
 import { ProductDetailInterface } from "@/interface";
 import { InfoProductDetails } from "./info-product-details";
+import { InfoImagenSkeleton } from "./info-imagen-skeleton";
 
 export function InfoProduct() {
-  const [data, setData] = useState<ProductDetailInterface | undefined>(undefined);
+  const [data, setData] = useState<ProductDetailInterface | null>(null);
   const param = useParams();
   const uuid = param.uuid?.toString();
 
@@ -24,8 +25,17 @@ export function InfoProduct() {
   }, [uuid]);
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 w-full p-4 gap-4">
-      <InfoImagen data={data?.images}/>
-      <InfoProductDetails data ={data}/>
+      {!data ? (
+        <>
+          <InfoImagenSkeleton />
+          <InfoImagenSkeleton />
+        </>
+      ) : (
+        < >
+          <InfoImagen data={data.images} />
+          <InfoProductDetails data={data} />
+        </>
+      )}
     </div>
   )
 }
