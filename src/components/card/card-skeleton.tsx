@@ -1,5 +1,5 @@
 
-export function ProductCardSkeleton() {
+export function CardSkeleton() {
   return (
     <div className="w-60 shadow-md rounded-lg animate-pulse">
       <div className="w-full h-40 rounded-t-lg bg-gray-300 mb-2"></div>

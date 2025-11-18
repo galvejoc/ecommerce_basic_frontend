@@ -2,9 +2,9 @@
 import { getProductsSingle } from "@/app/api/products.api";
 import { productsStore } from "@/store/product-store";
 import { useEffect, useState } from "react";
-import { ProductCardSkeleton } from "./product-card-skeleton";
+import { CardSkeleton } from "./card-skeleton";
 import { ProductCard } from "./product-card";
-import { ProductCardEmpty } from "./product-card-empty";
+import { CardEmpty } from "./card-empty";
 import clsx from "clsx";
 
 export function ProductCardList({ openFilters }: { openFilters?: boolean }) {
@@ -37,12 +37,12 @@ export function ProductCardList({ openFilters }: { openFilters?: boolean }) {
         )}
       >
         {loader &&
-          Array.from({ length: 4 }).map((_, i) => <ProductCardSkeleton key={i} />)}
+          Array.from({ length: 4 }).map((_, i) => <CardSkeleton key={i} />)}
 
         {!loader && product?.length > 0 &&
           product.map((item) => <ProductCard key={item.uuid} data={item} />)}
       </div>
-      {!loader && (!product || product.length === 0) && <ProductCardEmpty />}
+      {!loader && (!product || product.length === 0) && <CardEmpty text={"product"} />}
     </>
   );
 }
