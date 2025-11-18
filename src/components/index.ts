@@ -16,3 +16,9 @@ export * from './card/combo-card-list';
 
 export * from './filters/filters-products';
 export * from './filters/filters-combo';
+
+export * from './information/info-product';
+export * from './information/info-combo';
+export * from './information/info-product-details';
+export * from './information/info-imagen';
+export * from './information/info-combo-details';

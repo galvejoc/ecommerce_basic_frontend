@@ -22,3 +22,14 @@ export async function getProductsSingle(filters: ProductSingleFiltersInterface) 
     throw new Error(error.response?.data?.message || "Error get product");
   }
 }
+
+export async function getProductsForUuid(uuid?: string) {
+  try {
+    if (!uuid) throw new Error("UUID is required");
+    const res = await api.get(`/products/${uuid}`);
+    return res.data;
+  } catch (error: any) {
+    console.error(error);
+    throw new Error(error.response?.data?.message || "Error get product for uuid");
+  }
+}

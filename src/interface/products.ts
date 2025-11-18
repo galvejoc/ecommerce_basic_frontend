@@ -1,3 +1,12 @@
+import { CategoriesInterface } from "./categories"
+import { TagsInterface } from "./tags"
+
+export enum EnumProductsStatus {
+  ACTIVE = "ACTIVE",
+  INACTIVE = "INACTIVE",
+  OUT_OF_STOCK = "OUT_OF_STOCK",
+}
+
 export interface CreateProductsInterface {
   name: string,
   descriptionShort: string,
@@ -24,7 +33,7 @@ export interface ProductSingleInterface {
   uuid: string,
   name: string,
   descriptionShort: string,
-  status: string,
+  status: EnumProductsStatus,
   price: string,
   discount_price: string,
   discount_percentage: string,
@@ -41,4 +50,38 @@ export interface ProductSingleFiltersInterface {
   search?: string,
   page: number,
   limit: number,
+}
+
+export interface ProductDetailInterface {
+  uuid: string,
+  name: string,
+  descriptionShort: string,
+  description: string,
+  status: EnumProductsStatus,
+  brand: string,
+  weight: string,
+  weightUnit: string,
+  width: string,
+  height: string,
+  length: string,
+  dimensionUnit: string,
+  isFragile: boolean,
+  details: ProductsDetailsElemntInterface[],
+  price: string,
+  discount_price: string,
+  discount_percentage: string,
+  images: DetailImageInterface[],
+  tags: TagsInterface[],
+  categories: CategoriesInterface[],
+}
+
+export interface DetailImageInterface {
+  url: string;
+  isMain: boolean;
+}
+
+export interface ProductsDetailsElemntInterface {
+  id: number;
+  title: string;
+  value: string;
 }

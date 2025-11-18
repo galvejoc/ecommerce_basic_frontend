@@ -20,3 +20,8 @@ export interface ComboSingleFiltersInterface {
   page: number,
   limit: number,
 }
+
+export interface ComboDetailInterface {
+  uuid: string,
+  images: string,
+}
