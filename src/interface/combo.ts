@@ -26,3 +26,9 @@ export interface ComboDetailInterface {
   uuid: string,
   images: string,
 }
+
+export interface ComboPaginationInterface {
+  total: number,
+  page: number,
+  limit: number,
+}

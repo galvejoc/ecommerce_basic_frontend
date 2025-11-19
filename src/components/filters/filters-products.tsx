@@ -70,7 +70,7 @@ export function FiltersProducts() {
           onClick={() => {
             cleanProductSingleFilters();
           }}
-          className="w-1/5 rounded-lg bg-primary text-white justify-center items-center flex cursor-pointer"
+          className="w-1/5 rounded-lg bg-primary hover:bg-secondary text-white justify-center items-center flex cursor-pointer"
         >
           <BrushCleaning />
         </button>

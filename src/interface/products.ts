@@ -86,3 +86,9 @@ export interface ProductsDetailsElemntInterface {
   title: string;
   value: string;
 }
+
+export interface ProductPaginationInterface {
+  total: number,
+  page: number,
+  limit: number,
+}
