@@ -86,7 +86,7 @@ export function InfoProductDetails({ data }: { data: ProductDetailInterface }) {
           {data.categories.map((categories) => (
             <button
               key={categories.uuid}
-              className="px-3 uppercase py-1 rounded-xl border text-xs border-primary transition bg-primary text-white cursor-pointer"
+              className="px-3 uppercase py-1 rounded-xl border text-xs border-primary transition bg-background hover:bg-gray-200 text-secondary cursor-pointer"
               onClick={() => handleCategoryClick(categories.uuid)}
             >
               {categories.name}
@@ -103,7 +103,7 @@ export function InfoProductDetails({ data }: { data: ProductDetailInterface }) {
           {data.tags.map((tag) => (
             <button
               key={tag.uuid}
-              className="px-3 uppercase py-1 rounded-xl border text-xs border-primary transition bg-primary text-white cursor-pointer"
+              className="px-3 uppercase py-1 rounded-xl border text-xs border-primary transition bg-background text-secondary hover:bg-gray-200 cursor-pointer"
               onClick={() => handleTagClick(tag.uuid)}
             >
               {tag.name}

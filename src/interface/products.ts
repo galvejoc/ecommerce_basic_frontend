@@ -68,6 +68,7 @@ export interface ProductDetailInterface {
   isFragile: boolean,
   details: ProductsDetailsElemntInterface[],
   price: string,
+  sku: string,
   discount_price: string,
   discount_percentage: string,
   images: DetailImageInterface[],

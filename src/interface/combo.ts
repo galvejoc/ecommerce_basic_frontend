@@ -5,6 +5,7 @@ export interface ComboSingleInterface {
   status: string,
   subtotal: string,
   price: string,
+  sku: string,
   discount_price: string,
   discount_percentage: string,
   imagen: string,

@@ -4,6 +4,7 @@ import { getTags } from "@/app/api/tags.api";
 import { comboStore } from "@/store";
 import { categoriesStore } from "@/store/category-store";
 import { tagsStore } from "@/store/tag-store";
+import { BrushCleaning } from "lucide-react";
 import { useEffect } from "react";
 import { getTrackBackground, Range } from "react-range";
 
@@ -69,9 +70,9 @@ export function FiltersCombo() {
           onClick={() => {
             cleanComboSingleFilters();
           }}
-          className="w-1/5 rounded-lg bg-primary text-white"
+          className="w-1/5 rounded-lg bg-primary text-white justify-center items-center flex cursor-pointer"
         >
-
+          <BrushCleaning />
         </button>
       </div>
       <span className="flex mt-4 text-lg">Categorias</span>
@@ -81,7 +82,7 @@ export function FiltersCombo() {
           <button
             key={cat.uuid}
             onClick={() => handleSelectCategory(cat.uuid)}
-            className={`px-3 uppercase py-1 rounded-xl border text-xs border-primary transition ${comboSingleFilters.categoryUuid === cat.uuid
+            className={`px-3 uppercase py-1 rounded-xl border text-xs border-primary cursor-pointer transition ${comboSingleFilters.categoryUuid === cat.uuid
               ? 'bg-primary text-white'
               : 'bg-background hover:bg-gray-200 text-secondary'
               }`}
@@ -97,7 +98,7 @@ export function FiltersCombo() {
           <button
             key={e.uuid}
             onClick={() => handleSelectTags(e.uuid)}
-            className={`px-3 uppercase py-1 rounded-xl border border-primary text-xs transition ${comboSingleFilters.tagUuid === e.uuid
+            className={`px-3 uppercase py-1 rounded-xl border border-primary text-xs cursor-pointer transition ${comboSingleFilters.tagUuid === e.uuid
               ? 'bg-primary text-white'
               : 'bg-background hover:bg-gray-200 text-secondary'
               }`}
