@@ -13,6 +13,7 @@ export * from './card/card-skeleton';
 export * from './card/card-empty';
 export * from './card/combo-card';
 export * from './card/combo-card-list';
+export * from './card/combo-item-card';
 
 export * from './filters/filters-products';
 export * from './filters/filters-combo';
@@ -23,3 +24,5 @@ export * from './information/info-product-details';
 export * from './information/info-imagen';
 export * from './information/info-combo-details';
 export * from './information/info-imagen-skeleton';
+export * from './information/info-product-details-skeleton';
+export * from './information/info-combo-details-skeleton';

@@ -35,7 +35,6 @@ export function InfoProductDetails({ data }: { data: ProductDetailInterface }) {
     router.push('/products');
   }
 
-
   return (
     <div className="w-full mt-10 xs:mt-2 flex flex-col gap-2 mx-10 xs:mx-2">
       <span className="text-lg font-bold">{data.name}</span>

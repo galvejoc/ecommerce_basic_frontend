@@ -6,6 +6,7 @@ import { InfoImagen } from "./info-imagen";
 import { ProductDetailInterface } from "@/interface";
 import { InfoProductDetails } from "./info-product-details";
 import { InfoImagenSkeleton } from "./info-imagen-skeleton";
+import { InfoProductDetailsSkeleton } from "./info-product-details-skeleton";
 
 export function InfoProduct() {
   const [data, setData] = useState<ProductDetailInterface | null>(null);
@@ -28,7 +29,7 @@ export function InfoProduct() {
       {!data ? (
         <>
           <InfoImagenSkeleton />
-          <InfoImagenSkeleton />
+          <InfoProductDetailsSkeleton />
         </>
       ) : (
         < >

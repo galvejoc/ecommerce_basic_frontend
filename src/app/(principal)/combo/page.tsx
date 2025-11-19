@@ -5,7 +5,6 @@ import { ArrowLeftToLine, ArrowRightFromLine } from 'lucide-react'
 
 export default function Products() {
   const [openFilters, setOpenFilters] = useState(true)
-
   return (
     <div className="mt-10 flex flex-col sm:flex-row gap-6">
       <div className={`${openFilters ? 'w-full sm:w-64' : 'w-0'} transition-all duration-300 overflow-hidden`}>

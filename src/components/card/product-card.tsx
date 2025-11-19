@@ -10,7 +10,7 @@ export function ProductCard({ data }: { data: ProductSingleInterface }) {
         "w-60 shadow-md rounded-lg hover:cursor-pointer hover:shadow-xl transition duration-300",
         isOut && "opacity-50"
       )}>
-        <div className="w-full h-40 rounded-t-lg mb-2 overflow-hidden relative">
+        <div className="w-full rounded-t-lg mb-2 overflow-hidden relative">
           <img
             src={data.imagen ? data.imagen : '/placeholder-product.png'}
             alt={data.name}
