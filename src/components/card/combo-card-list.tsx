@@ -77,7 +77,7 @@ export function ComboCardList({ openFilters }: { openFilters?: boolean }) {
       {pagination && pagination.page * pagination.limit < pagination.total && (
         <div className="flex justify-center my-10">
           <button
-            className="mb-4 ml-10 px-4 py-2 rounded-lg bg-primary hover:bg-secondary text-white cursor-pointer"
+            className="mb-4 ml-10 px-4 py-2 rounded-lg bg-primary hover:bg-primary/90 text-white cursor-pointer"
             onClick={() => handleAddProduct()}
           >
             Mostrar Más

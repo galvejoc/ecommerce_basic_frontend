@@ -49,10 +49,10 @@ export function InfoComboDetails({ data }: { data: ComboDetailInterface }) {
 
       <div className="flex gap-2 justify-start items-center mt-4" >
         <input type="number" className="border border-primary rounded-lg w-20 h-10 font-medium text-lg px-2" defaultValue={1} />
-        <button className="bg-primary text-white px-4 py-2 rounded-lg transition-colors cursor-pointer">
+        <button className="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg transition-colors cursor-pointer">
           Add to Cart
         </button>
-        <button className="bg-secondary text-white px-4 py-2 rounded-lg  transition-colors cursor-pointer">
+        <button className="bg-secondary hover:bg-secondary/90 text-white px-4 py-2 rounded-lg  transition-colors cursor-pointer">
           Add and Buy Now
         </button>
       </div>

@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import { AvatarUser } from "./avatar-user";
 import { getUserMe } from "@/app/api/users.api";
+import { CartButton } from "../cart/cart-button";
 
 export function TopMenu() {
   const pathName = usePathname();
@@ -100,7 +101,12 @@ export function TopMenu() {
             Register
           </div>
         </Link>
-
+        <div className={clsx(
+          " flex mx-4 justify-items-center items-center",
+          { hidden: !user.username }
+        )}>
+          <CartButton />
+        </div>
         <AvatarUser user={user} />
       </div>
     </nav>

@@ -16,7 +16,7 @@ export default function Products() {
       <div className="flex-1">
         <button
           onClick={() => setOpenFilters(!openFilters)}
-          className="mb-4 ml-10 px-4 py-2 rounded-lg bg-primary hover:bg-secondary text-white hover:cursor-pointer"
+          className="mb-4 ml-10 px-4 py-2 rounded-lg bg-primary hover:bg-primary/90 text-white hover:cursor-pointer"
         >
           {openFilters ?
             <div className='flex justify-center gap-2'><ArrowLeftToLine />Ocultar filtros</div> :

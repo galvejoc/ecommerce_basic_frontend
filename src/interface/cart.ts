@@ -11,17 +11,17 @@ export interface UpdateCartItemInterface {
 export interface CartInterface {
   cantItems: number;
   totalQuantity: number;
-  updatedAt: Date;
-  items: CartItemInterface[];
+  updatedAt?: Date;
+  items?: CartItemInterface[];
 }
 
 export interface CartItemInterface {
   uuidItem: string;
-  quantity: string;
+  quantity: number;
   subtotal: string;
   updateAt: Date;
-  product?: string;
-  combo?: string;
+  product?: CartItemProductInterface | null;
+  combo?: CartItemComboInterface | null;
 }
 
 export interface CartItemProductInterface {
@@ -45,4 +45,10 @@ export interface CartItemComboInterface {
   price?: string;
   discount_price?: string;
   discount_percentage?: string;
+}
+
+export interface CartModalInterface {
+  setOpen: (value: boolean)=> void,
+  modalRef: any,
+  store: any,
 }

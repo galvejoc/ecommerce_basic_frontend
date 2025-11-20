@@ -3,6 +3,7 @@ export * from './ui/footer';
 export * from './ui/avatar-user';
 export * from './ui/top-menu';
 export * from './ui/main-home';
+export * from './ui/drawer-menu';
 
 export * from './form/form-login';
 export * from './form/form-register';
@@ -26,3 +27,9 @@ export * from './information/info-combo-details';
 export * from './information/info-imagen-skeleton';
 export * from './information/info-product-details-skeleton';
 export * from './information/info-combo-details-skeleton';
+
+export * from './cart/cart-button';
+export * from './cart/cart-modal';
+export * from './cart/cart-item-simple';
+
+export * from './custom/quantity-input';

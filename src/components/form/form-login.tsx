@@ -43,7 +43,7 @@ export function FormLogin() {
         <input autoComplete="current-password" type="password" {...register("password")} required
           className="bg-background border-2 border-gray-300 focus:border-accent focus:outline-none text-sm rounded-lg block w-full p-2.5" />
       </div>
-      <button type="submit" className="w-full text-white bg-primary hover:bg-secondary focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+      <button type="submit" className="w-full text-white bg-primary hover:bg-primary/90 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center cursor-pointer">
         Login to your account
       </button>
       <div className="text-sm font-medium">
