@@ -6,7 +6,7 @@ export function CartModal({ setOpen, modalRef, store }: CartModalInterface) {
   return (
     <div
       ref={modalRef}
-      className={`absolute right-0 mt-3 w-96 bg-white border shadow-xl rounded-xl p-4 z-50
+      className={`absolute right-0 mt-3 w-96 bg-white border border-primary shadow-xl rounded-xl p-4 z-50
         transform transition-all duration-300 ease-out animate-fade-in`}>
       <div className="flex justify-between items-center mb-3">
         <h2 className="font-semibold">Tu carrito</h2>

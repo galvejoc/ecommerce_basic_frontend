@@ -26,3 +26,9 @@ export interface UpdateUserInterface {
   numberHome?: string
   note?: string
 }
+
+export interface UserModalInterface {
+  setOpen: (value: boolean)=> void,
+  modalRef: any,
+  store: any,
+}

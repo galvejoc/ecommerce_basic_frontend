@@ -56,11 +56,11 @@ export function ComboCardList({ openFilters }: { openFilters?: boolean }) {
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col mt-3">
       <>
         <div
           className={clsx(
-            "mt-3 w-full grid gap-2 justify-items-center",
+            "w-full grid gap-6 justify-items-center",
             openFilters
               ? "grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4"
               : "grid-cols-1 md:grid-cols-3 xl:grid-cols-5"
