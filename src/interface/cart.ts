@@ -9,14 +9,40 @@ export interface UpdateCartItemInterface {
 }
 
 export interface CartInterface {
-  uuid: string;
+  cantItems: number;
+  totalQuantity: number;
+  updatedAt: Date;
   items: CartItemInterface[];
-  updateAt: Date;
 }
 
 export interface CartItemInterface {
-  uuid: string;
+  uuidItem: string;
   quantity: string;
   subtotal: string;
   updateAt: Date;
+  product?: string;
+  combo?: string;
+}
+
+export interface CartItemProductInterface {
+  uuid: string;
+  name: string;
+  descriptionShort: string;
+  sku: string;
+  price: string;
+  discount_price: string;
+  discount_percentage: string;
+  imagen: string;
+}
+
+export interface CartItemComboInterface {
+  uuid: string;
+  name: string;
+  descriptionShort: string;
+  sku: string;
+  imagen: string;
+  subtotal: string;
+  price?: string;
+  discount_price?: string;
+  discount_percentage?: string;
 }

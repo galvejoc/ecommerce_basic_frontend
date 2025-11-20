@@ -1,4 +1,14 @@
 import { CartInterface } from "@/interface";
 import { create } from "zustand";
 
-export const userStore = create<CartInterface>()((set) => ({}))
+interface CartStore {
+  store: CartInterface[];
+  setCart: (value: CartInterface[]) => void,
+}
+
+export const userStore = create<CartStore>()((set) => ({
+  store: [],
+  setCart: (value) => set(() => ({
+    store: value
+  })),
+}))
