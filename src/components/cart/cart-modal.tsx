@@ -33,8 +33,8 @@ export function CartModal({ setOpen, modalRef, store }: CartModalInterface) {
       )}
 
       <button
-        className="mt-4 w-full bg-primary text-white py-2 rounded-lg 
-        hover:bg-primary/80 text-sm cursor-pointer"
+        className="mt-4 px-4 py-2 w-full bg-primary text-white rounded-lg 
+        hover:bg-primary/90 duration-300 transition-colors text-sm cursor-pointer"
       >
         $Monto  Ver carrito
       </button>

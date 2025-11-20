@@ -70,7 +70,7 @@ export function FiltersCombo() {
           onClick={() => {
             cleanComboSingleFilters();
           }}
-          className="w-1/5 rounded-lg bg-primary hover:bg-primary/90 text-white justify-center items-center flex cursor-pointer"
+          className="w-1/5 rounded-lg bg-primary hover:bg-primary/90 text-white justify-center items-center flex cursor-pointer duration-300 transition-colors"
         >
           <BrushCleaning />
         </button>
@@ -82,7 +82,7 @@ export function FiltersCombo() {
           <button
             key={cat.uuid}
             onClick={() => handleSelectCategory(cat.uuid)}
-            className={`px-3 uppercase py-1 rounded-xl border text-xs border-primary cursor-pointer transition ${comboSingleFilters.categoryUuid === cat.uuid
+            className={`px-3 uppercase py-1 rounded-xl border text-xs border-primary cursor-pointer duration-300 transition ${comboSingleFilters.categoryUuid === cat.uuid
               ? 'bg-primary text-white'
               : 'bg-background hover:bg-gray-200 text-primary/90'
               }`}
@@ -98,7 +98,7 @@ export function FiltersCombo() {
           <button
             key={e.uuid}
             onClick={() => handleSelectTags(e.uuid)}
-            className={`px-3 uppercase py-1 rounded-xl border border-primary text-xs cursor-pointer transition ${comboSingleFilters.tagUuid === e.uuid
+            className={`px-3 uppercase py-1 rounded-xl border border-primary text-xs cursor-pointer duration-300 transition ${comboSingleFilters.tagUuid === e.uuid
               ? 'bg-primary text-white'
               : 'bg-background hover:bg-gray-200 text-primary/90'
               }`}
