@@ -1,9 +1,29 @@
+'use client'
+import { logoutUser } from "@/app/api/auth.api";
 import { UserModalInterface } from "@/interface";
 import { userStore } from "@/store";
 import { Archive, CircleQuestionMark, LogOut, MapPin, User, X } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 export function UserModal({ setOpen, modalRef, store }: UserModalInterface) {
   const { cleanUser } = userStore((state) => state);
+  const router = useRouter();
+
+  const handleLogoutUser = () => {
+    const logout = async () => {
+      try {
+        const res = await logoutUser();
+        toast.success(res.message);
+        cleanUser();
+        router.push('/');
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    logout();
+  }
+
   return (
     <div
       ref={modalRef}
@@ -33,7 +53,7 @@ export function UserModal({ setOpen, modalRef, store }: UserModalInterface) {
         </button>
         <button
           className="flex gap-2 w-full items-center  py-2 px-4 bg-background/60 rounded-xl cursor-pointer hover:bg-background transition-colors duration-300"
-          onClick={() => (cleanUser())}
+          onClick={() => handleLogoutUser()}
         >
           <LogOut size={20} />  Salir de la cuenta
         </button>

@@ -14,7 +14,7 @@ export function FormLogin() {
   const onSubmit = handleSubmit(async (data) => {
     try {
       const response = await loginUser(data);
-      if (response && !response.ok) {
+      if (response && !response.user) {
         throw new Error();
       }
       const user = await getUserMe();

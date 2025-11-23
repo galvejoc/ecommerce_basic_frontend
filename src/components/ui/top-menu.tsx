@@ -80,34 +80,30 @@ export function TopMenu() {
       </div>
 
       <div className="flex items-center text-secondary font-bold ">
-        <Link href="/login">
-          <div
-            className={clsx(
-              "py-2 px-3 ml-3 rounded-xl hover:scale-110",
-              { hidden: user.username }
-            )}
-          >
-            Login
-          </div>
-        </Link>
-
-        <Link href="/register">
-          <div
-            className={clsx(
-              "py-2 px-3 ml-3 rounded-xl hover:scale-110",
-              { hidden: user.username }
-            )}
-          >
-            Register
-          </div>
-        </Link>
-        <div className={clsx(
-          " flex mx-4 justify-items-center items-center",
-          { hidden: !user.username }
-        )}>
-          <CartButton />
-        </div>
-        <AvatarUser user={user} />
+        {!user.name ?
+          <>
+            <Link href="/login">
+              <div
+                className="py-2 px-3 ml-3 rounded-xl hover:scale-110">
+                Login
+              </div>
+            </Link>
+            <Link href="/register">
+              <div
+                className="py-2 px-3 ml-3 rounded-xl hover:scale-110">
+                Register
+              </div>
+            </Link>
+            <div />
+          </>
+          :
+          <>
+            <div className="flex mx-4 justify-items-center items-center">
+              <CartButton />
+            </div>
+            <AvatarUser user={user} />
+          </>
+        }
       </div>
     </nav>
   );
