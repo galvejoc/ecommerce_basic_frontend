@@ -13,6 +13,7 @@ export function CartAddItemInfo({ uuid, type }: CardAddItemInfoInterface) {
 
   useEffect(() => {
     if (cart.items?.length === 0) {
+      setUuidItems('')
       return
     }
     if (type === EnumCardAddItemInfo.COMBO) {
@@ -20,6 +21,7 @@ export function CartAddItemInfo({ uuid, type }: CardAddItemInfoInterface) {
         if (e.combo?.uuid === uuid) {
           setUuidItems(e.uuidItem);
           setValue(e.quantity)
+          return
         }
       })
     }
@@ -28,9 +30,11 @@ export function CartAddItemInfo({ uuid, type }: CardAddItemInfoInterface) {
         if (e.product?.uuid === uuid) {
           setUuidItems(e.uuidItem);
           setValue(e.quantity)
+          return
         }
       })
     }
+    setUuidItems('')
   }, [cart]);
 
   const handleAddToCart = async () => {

@@ -15,7 +15,8 @@ export function CartItemSimple({ data }: { data: CartItemInterface }) {
           <span className="text-md my-1 text-text">${data.product.price}</span>
           <div className="flex flex-col text-xs w-full items-center mt-2">
             <QuantityInput
-              quantity={1}
+              quantity={data.quantity}
+              uuidItem={data.uuidItem}
             />
           </div>
         </div>
@@ -36,7 +37,8 @@ export function CartItemSimple({ data }: { data: CartItemInterface }) {
           <span className="text-md my-1 text-text">${data.combo.price}</span>
           <div className="flex flex-col text-xs w-full items-center mt-2">
             <QuantityInput
-              quantity={1}
+              quantity={data.quantity}
+              uuidItem={data.uuidItem}
             />
           </div>
         </div>
