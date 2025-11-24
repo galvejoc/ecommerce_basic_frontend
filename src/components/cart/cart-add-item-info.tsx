@@ -1,8 +1,10 @@
 'use client'
+import { addCartItem, getCartMe, updateCartItem } from "@/app/api/carts.api";
 import { CardAddItemInfoInterface, EnumCardAddItemInfo } from "@/interface";
 import { cartStore } from "@/store";
 import { Trash2 } from "lucide-react";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 export function CartAddItemInfo({ uuid, type }: CardAddItemInfoInterface) {
   const [value, setValue] = useState<number>(1);
@@ -31,36 +33,97 @@ export function CartAddItemInfo({ uuid, type }: CardAddItemInfoInterface) {
     }
   }, [cart]);
 
-  const handleAddToCart = () => {
-    // Lógica para agregar el producto al carrito
+  const handleAddToCart = async () => {
+    const data = {
+      quantity: value,
+      productUuid: type === EnumCardAddItemInfo.PRODUCT ? uuid : "",
+      comboUuid: type === EnumCardAddItemInfo.COMBO ? uuid : "",
+    }
+    try {
+      const res = await addCartItem(data);
+      toast.success(res.message);
+      const resCart = await getCartMe();
+      setCart(resCart);
+    } catch (error) {
+      toast.error('Error');
+    }
   };
 
-  const handleAddAndBuyNow = () => {
-    // Lógica para comprar el producto inmediatamente
+  const handleAddAndBuyNow = async () => {
+    const data = {
+      quantity: value,
+      productUuid: type === EnumCardAddItemInfo.PRODUCT ? uuid : "",
+      comboUuid: type === EnumCardAddItemInfo.COMBO ? uuid : "",
+    }
+    try {
+      const res = await addCartItem(data);
+      toast.success(res.message);
+      const resCart = await getCartMe();
+      setCart(resCart);
+      //redirigir a la parte de la compra
+    } catch (error) {
+      toast.error('Error');
+    }
   };
 
-  const handleEditToCart = () => {
-    // Lógica para editar el producto al carrito
+  const handleEditToCart = async () => {
+    const data = {
+      quantity: value
+    }
+    try {
+      const res = await updateCartItem(uuidItems, data)
+      toast.success(res.message);
+      const resCart = await getCartMe();
+      setCart(resCart);
+    } catch (error) {
+      toast.error('Error');
+    }
   }
 
-  const handleEditAndBuyNow = () => {
-    // Lógica para comprar el producto inmediatamente
+  const handleEditAndBuyNow = async () => {
+    const data = {
+      quantity: value
+    }
+    try {
+      const res = await updateCartItem(uuidItems, data)
+      toast.success(res.message);
+      const resCart = await getCartMe();
+      setCart(resCart);
+      //redirigir a la parte de la compra
+    } catch (error) {
+      toast.error('Error');
+    }
   };
 
   const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // Lógica para cambiar la cantidad
-    console.log(e);
+    const newValue = Math.max(1, Number(e.target.value));
+    setValue(newValue);
   };
 
-  const handleRemoveItemsCart = () => {
-
+  const handleRemoveItemsCart = async () => {
+    const data = {
+      quantity: 0
+    }
+    try {
+      const res = await updateCartItem(uuidItems, data)
+      toast.success(res.message);
+      const resCart = await getCartMe();
+      setCart(resCart);
+      setUuidItems('')
+    } catch (error) {
+      toast.error('Error');
+    }
   }
 
   return (
     <>
       {!uuidItems ?
         <div className="flex gap-2 justify-start items-center mt-4" >
-          <input type="number" className="border border-primary rounded-lg w-20 h-10 font-medium text-lg px-2" value={value} />
+          <input
+            type="number"
+            className="border border-primary rounded-lg w-20 h-10 font-medium text-lg px-2"
+            onChange={handleQuantityChange}
+            value={value} />
           <button
             className="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg cursor-pointer duration-300 transition-colors"
             onClick={() => handleAddToCart()}
@@ -83,7 +146,12 @@ export function CartAddItemInfo({ uuid, type }: CardAddItemInfoInterface) {
           >
             <Trash2 size={18} />
           </button>
-          <input type="number" className="border border-primary rounded-lg w-20 h-10 font-medium text-lg px-2" value={value} />
+          <input
+            type="number"
+            className="border border-primary rounded-lg w-20 h-10 font-medium text-lg px-2"
+            onChange={handleQuantityChange}
+            value={value}
+          />
           <button
             className="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg cursor-pointer duration-300 transition-colors"
             onClick={() => handleEditToCart()}

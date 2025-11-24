@@ -13,7 +13,7 @@ export async function getCartMe() {
 
 export async function addCartItem(data: AddCartItemInterface) {
   try {
-    const res = await api.post("/carts", data);
+    const res = await api.post("/carts/item", data);
     return res.data;
   } catch (error: any) {
     console.error(error);
@@ -33,7 +33,7 @@ export async function clearCart() {
 
 export async function updateCartItem(uuid: string, data: UpdateCartItemInterface) {
   try {
-    const res = await api.patch(`/carts/${uuid}`, data);
+    const res = await api.patch(`/carts/item/${uuid}`, data);
     return res.data;
   } catch (error: any) {
     console.error(error);
