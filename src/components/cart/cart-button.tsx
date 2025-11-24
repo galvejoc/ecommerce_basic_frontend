@@ -7,7 +7,7 @@ import { CartModal } from "./cart-modal";
 
 export function CartButton() {
   const [open, setOpen] = useState<boolean>(false);
-  const { store, setCart } = cartStore((state) => state);
+  const { cart, setCart } = cartStore((state) => state);
   const modalRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -41,14 +41,14 @@ export function CartButton() {
         onClick={() => setOpen(!open)}
       >
         <ShoppingCart />
-        {store.totalQuantity > 0 && (
+        {cart.totalQuantity > 0 && (
           <span className="absolute -top-1 -right-2 bg-red-500 text-white text-xs font-bold w-6 h-6 flex items-center justify-center rounded-full">
-            {store.totalQuantity}
+            {cart.totalQuantity}
           </span>
         )}
       </button>
       {open && (
-        <CartModal setOpen={setOpen} modalRef={modalRef} store={store}/>
+        <CartModal setOpen={setOpen} modalRef={modalRef} store={cart} />
       )}
     </div>
   )

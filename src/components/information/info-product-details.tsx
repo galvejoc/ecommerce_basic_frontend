@@ -1,23 +1,12 @@
 'use client';
-import { ProductDetailInterface } from "@/interface";
+import { EnumCardAddItemInfo, ProductDetailInterface } from "@/interface";
 import { productsStore } from "@/store";
 import { useRouter } from "next/navigation";
+import { CartAddItemInfo } from "../cart/cart-add-item-info";
 
 export function InfoProductDetails({ data }: { data: ProductDetailInterface }) {
   const router = useRouter();
   const { productSingleFilters, setProductSingleFilters } = productsStore((state) => state);
-
-  const handleAddToCart = () => {
-    // Lógica para agregar el producto al carrito
-  };
-
-  const handleBuyNow = () => {
-    // Lógica para comprar el producto inmediatamente
-  };
-
-  const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // Lógica para cambiar la cantidad
-  };
 
   const handleCategoryClick = (categoryUuid: string) => {
     setProductSingleFilters({
@@ -45,17 +34,7 @@ export function InfoProductDetails({ data }: { data: ProductDetailInterface }) {
         <span className="text-2xl font-bold text-secondary">${data.discount_price}</span>
         <span className="text-2xl font-bold text-secondary">{data.discount_percentage}</span>
       </div>
-
-      <div className="flex gap-2 justify-start items-center mt-4" >
-        <input type="number" className="border border-primary rounded-lg w-20 h-10 font-medium text-lg px-2" defaultValue={1} />
-        <button className="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg cursor-pointer duration-300 transition-colors">
-          Add to Cart
-        </button>
-        <button className="bg-secondary hover:bg-secondary/90 text-white px-4 py-2 rounded-lg cursor-pointer duration-300 transition-colors">
-          Add and Buy Now
-        </button>
-      </div>
-
+      <CartAddItemInfo uuid={data.uuid} type={EnumCardAddItemInfo.PRODUCT}/>
       <div className="mt-4 flex flex-col">
         <span className="text-lg font-medium">
           Descricption

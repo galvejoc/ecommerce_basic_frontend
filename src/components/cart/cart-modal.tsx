@@ -1,6 +1,7 @@
 import { CartItemInterface, CartModalInterface } from "@/interface";
 import { X } from "lucide-react";
 import { CartItemSimple } from "./cart-item-simple";
+import { CartItemSimpleEmpty } from "./cart-item-simple-empty";
 
 export function CartModal({ setOpen, modalRef, store }: CartModalInterface) {
   return (
@@ -17,21 +18,21 @@ export function CartModal({ setOpen, modalRef, store }: CartModalInterface) {
           <X />
         </button>
       </div>
-      {store ? (
+      {store.items && store.items.length > 0 ? (
         <div className="space-y-2 text-sm">
           <div>
             <p className="text-gray-600">
               Productos:
             </p>
             {store.items.map((e: CartItemInterface) => (
-              <CartItemSimple data={e} key={e.uuidItem}/>
+              <CartItemSimple data={e} key={e.uuidItem} />
             ))}
           </div>
         </div>
       ) : (
-        <p className="text-gray-400 text-sm">Carrito vacío</p>
+        <CartItemSimpleEmpty />
       )}
-
+      <hr className="border-t my-1 border-gray-300" />
       <button
         className="mt-4 px-4 py-2 w-full bg-primary text-white rounded-lg 
         hover:bg-primary/90 duration-300 transition-colors text-sm cursor-pointer"

@@ -32,5 +32,7 @@ export * from './information/info-combo-details-skeleton';
 export * from './cart/cart-button';
 export * from './cart/cart-modal';
 export * from './cart/cart-item-simple';
+export * from './cart/cart-item-simple-empty';
+export * from './cart/cart-add-item-info';
 
 export * from './custom/quantity-input';

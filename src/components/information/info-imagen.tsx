@@ -6,7 +6,7 @@ import Image from "next/image";
 import { InfoImagenSkeleton } from "./info-imagen-skeleton";
 
 interface InfoImagenInterface {
-  data: DetailImageInterface[] | DetailImageInterface | string | undefined;
+  data: DetailImageInterface[] | DetailImageInterface | string | undefined | [];
 }
 
 export function InfoImagen({ data }: InfoImagenInterface) {
@@ -35,14 +35,22 @@ export function InfoImagen({ data }: InfoImagenInterface) {
     setImages(data);
     const mainImg = data.find((img) => img.isMain) || data[0];
     if (mainImg === undefined) {
+      setImages([]);
+      setMain('/placeholder-product.png');
       return
     }
     setMain(mainImg.url);
+
+    if (data[0].url === '' || data.length === 0) {
+      setImages([]);
+      setMain('/placeholder-product.png');
+      return;
+    }
   }, [data]);
 
   if (!main) {
     return <div className="text-gray-400 text-sm">
-      <InfoImagenSkeleton/>
+      <InfoImagenSkeleton />
     </div>;
   }
 
@@ -54,6 +62,7 @@ export function InfoImagen({ data }: InfoImagenInterface) {
           width={600}
           height={600}
           unoptimized
+          loading="eager"
           alt="imagen principal"
           className="object-contain w-[500] h-[500px] rounded-6xl rounded-2xl"
         />

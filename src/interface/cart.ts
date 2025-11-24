@@ -50,5 +50,16 @@ export interface CartItemComboInterface {
 export interface CartModalInterface {
   setOpen: (value: boolean)=> void,
   modalRef: any,
-  store: any,
+  store: CartInterface,
+}
+
+export interface CardAddItemInfoInterface {
+  uuid: string;
+  type: EnumCardAddItemInfo;
+}
+
+
+export enum EnumCardAddItemInfo {
+  COMBO = "COMBO",
+  PRODUCT = "PRODUCT",
 }

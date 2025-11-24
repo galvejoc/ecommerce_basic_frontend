@@ -1,24 +1,13 @@
 'use client';
-import { ComboDetailInterface } from "@/interface";
+import { ComboDetailInterface, EnumCardAddItemInfo } from "@/interface";
 import { comboStore } from "@/store";
 import { useRouter } from "next/navigation";
 import ComboItemCard from "../card/combo-item-card";
+import { CartAddItemInfo } from "../cart/cart-add-item-info";
 
 export function InfoComboDetails({ data }: { data: ComboDetailInterface }) {
   const router = useRouter();
   const { comboSingleFilters, setComboSingleFilters } = comboStore((state) => state);
-
-  const handleAddToCart = () => {
-    // Lógica para agregar el producto al carrito
-  };
-
-  const handleBuyNow = () => {
-    // Lógica para comprar el producto inmediatamente
-  };
-
-  const handleQuantityChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // Lógica para cambiar la cantidad
-  };
 
   const handleCategoryClick = (categoryUuid: string) => {
     setComboSingleFilters({
@@ -46,24 +35,14 @@ export function InfoComboDetails({ data }: { data: ComboDetailInterface }) {
         <span className="text-2xl font-bold text-secondary">${data.discount_price}</span>
         <span className="text-2xl font-bold text-secondary">{data.discount_percentage}</span>
       </div>
-
-      <div className="flex gap-2 justify-start items-center mt-4" >
-        <input type="number" className="border border-primary rounded-lg w-20 h-10 font-medium text-lg px-2" defaultValue={1} />
-        <button className="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg cursor-pointer duration-300 transition-colors">
-          Add to Cart
-        </button>
-        <button className="bg-secondary hover:bg-secondary/90 text-white px-4 py-2 rounded-lg cursor-pointer duration-300 transition-colors">
-          Add and Buy Now
-        </button>
-      </div>
-
+      <CartAddItemInfo uuid={data.uuid} type={EnumCardAddItemInfo.COMBO}/>
       <div className="mt-4 flex flex-col">
         <span className="text-lg font-medium">
           Productos incluidos
         </span>
         <div className="mt-2 flex gap-4">
-          {data.items.map((item) => (
-            <ComboItemCard data ={item}/>
+          {data.items.map((item, index) => (
+            <ComboItemCard data={item} key={index} />
           ))}
         </div>
       </div>
