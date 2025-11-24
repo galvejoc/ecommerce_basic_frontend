@@ -2,6 +2,7 @@ import { CartItemInterface, CartModalInterface } from "@/interface";
 import { X } from "lucide-react";
 import { CartItemSimple } from "./cart-item-simple";
 import { CartItemSimpleEmpty } from "./cart-item-simple-empty";
+import Link from "next/link";
 
 export function CartModal({ setOpen, modalRef, store }: CartModalInterface) {
   return (
@@ -33,12 +34,14 @@ export function CartModal({ setOpen, modalRef, store }: CartModalInterface) {
         <CartItemSimpleEmpty />
       )}
       <hr className="border-t my-1 border-gray-300" />
-      <button
-        className="mt-4 px-4 py-2 w-full bg-primary text-white rounded-lg 
-        hover:bg-primary/90 duration-300 transition-colors text-sm cursor-pointer"
+      <Link
+        href={'/cart'}
       >
-        $Monto  Ver carrito
-      </button>
+        <div className="mt-4 px-4 py-2 w-full bg-primary text-white rounded-lg text-center
+        hover:bg-primary/90 duration-300 transition-colors text-sm cursor-pointer">
+            Ver carrito
+        </div>
+      </Link>
     </div>
   )
 }
