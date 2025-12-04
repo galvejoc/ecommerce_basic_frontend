@@ -8,6 +8,7 @@ export * from './ui/user-modal';
 
 export * from './form/form-login';
 export * from './form/form-register';
+export * from './form/form-user';
 
 export * from './card/product-card';
 export * from './card/product-card-list';

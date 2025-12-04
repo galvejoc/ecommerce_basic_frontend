@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { jwtVerify } from 'jose';
 
-const SECRET = new TextEncoder().encode(process.env.NEXT_PUCLIC_JWT_SECRET || '');
+const SECRET = new TextEncoder().encode(process.env.NEXT_PUBLIC_JWT_SECRET || '');
 
 export async function middleware(request: NextRequest) {
   console.log('Middleware is running');
